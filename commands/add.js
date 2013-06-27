@@ -108,6 +108,8 @@ add = {
         archive.resolve(archiveName, namedArgs.volo.resolve, {
             amd: isAmdProject && !namedArgs.amdoff
         }).then(function (archiveInfo) {
+
+			  // stargin here
             var installedId, parentId, completeMessage, finalLinkPath;
 
             //If no baseUrl, then look for an existing js directory
@@ -207,7 +209,6 @@ add = {
                 try {
                     //If the baseUrl does not exist, create it.
                     file.mkdirs(baseUrl);
-
                     //Get the package JSON data for dependency, if it is
                     //already on disk.
                     existingPath = path.join(baseUrl, archiveInfo.finalLocalName);
@@ -288,7 +289,9 @@ add = {
                     }
 
                     downloadTarget = localName + (ext || '');
-
+					  // start here
+					  // need to use the zipball?
+					  // none of these cases handle the case of being private
                     if (archiveInfo.isArchive) {
                         return download({
                             url: url,
